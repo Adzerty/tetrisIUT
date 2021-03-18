@@ -10,9 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6071408e-aff8-401a-8a31-eebf6645cf2e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/GameActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/GameActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/ViewBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/ViewBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Carre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Tetris.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Tetris.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_game.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +60,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_27" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-03-16T07:49:19.165Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-03-18T09:17:21.996Z" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
     <property name="project.structure.last.edited" value="Modules" />

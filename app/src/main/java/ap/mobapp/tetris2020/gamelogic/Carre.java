@@ -4,11 +4,17 @@ public class Carre
 {
     private int color;
     private boolean isFixed;
+    private boolean isBlockedLeft;
+    private boolean isBlockedRight;
+
     private Piece motherPiece;
+
     public Carre(int color, Piece motherPiece)
     {
         this.color = color;
         this.isFixed = false;
+        this.isBlockedLeft = false;
+        this.isBlockedRight = false;
         this.motherPiece = motherPiece;
     }
 
@@ -25,6 +31,36 @@ public class Carre
     public boolean isFixed()
     {
         return isFixed;
+    }
+
+    public void setBlockedLeft(boolean b)
+    {
+        this.isBlockedLeft = b;
+    }
+
+    public void blockedAllPieceSquareLeft(boolean b)
+    {
+        this.motherPiece.blockedAllSquareLeft(b);
+    }
+
+    public boolean isBlockedLeft()
+    {
+        return isBlockedLeft;
+    }
+
+    public void setBlockedRight(boolean b)
+    {
+        this.isBlockedRight = b;
+    }
+
+    public void blockedAllPieceSquareRight(boolean b)
+    {
+        this.motherPiece.blockedAllSquareRight(b);
+    }
+
+    public boolean isBlockedRight()
+    {
+        return isBlockedRight;
     }
 
     public int getColor()

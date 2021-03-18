@@ -138,27 +138,94 @@ public class Board
                 }
             }
 
-            for (int i = 0; i < grille.length-1; i++)
+            for (int i = grille.length-1; i > 0; i--)
             {
-                for (int j = 1; j < grille[i].length-1; j++)//On parcours le tableau à l'envers
+                for (int j = grille[i].length-1; j > 0; j--)//On parcours le tableau à l'envers
                 {
                     if(this.grille[i][j] != null && !this.grille[i][j].isFixed())
                     {
                         if (i == grille.length - 1)//Si on est en bas de la grille
                         {
+                            Log.d("DEBUG", "bas de la grille");
                             this.grille[i][j].fixedAllPieceSquare(true);
                         }
                         else //Si le carre du dessous n'est pas null on fixe
                         {
-                            if (this.grille[i+1][j] != null)
+                            if (this.grille[i+1][j] != null && this.grille[i+1][j].isFixed())
                             {
-                                Log.d("STATE", "" + i + " : " );
                                 Log.d("DEBUG", "M1");
                                 this.grille[i][j].fixedAllPieceSquare(true);
                             }
                         }
                     }
                 }
+            }
+        }
+
+        if(direction == Directions.LEFT)
+        {
+            Carre toBlock = null;
+            for (int i = 0; i < grille.length; i++)
+            {
+                for (int j = 1; j < grille[i].length; j++)
+                {
+                    //On recupere le carre cible
+                    Carre carreTmp = grille[i][j];
+
+                    if(carreTmp != null && !carreTmp.isFixed() && !carreTmp.isBlockedLeft())
+                    {
+                        if(grille[i][j-1] == null)
+                        {
+                            carreTmp.blockedAllPieceSquareRight(false);
+                            grille[i][j-1] = carreTmp;
+                            grille[i][j] = null;
+
+                            if(j-1 == 0)
+                            {
+                                toBlock = grille[i][j-1];
+                            }
+                        }
+                    }
+                }
+            }
+            if(toBlock != null)
+            {
+                toBlock.blockedAllPieceSquareLeft(true);
+                toBlock = null;
+            }
+        }
+
+        if(direction == Directions.RIGHT)
+        {
+            Carre toBlock = null;
+            for (int i = 0; i < grille.length; i++)
+            {
+                for (int j = grille[i].length-2; j >= 0; j--)
+                {
+                    //On recupere le carre cible
+                    Carre carreTmp = grille[i][j];
+
+                    if(carreTmp != null && !carreTmp.isFixed() && !carreTmp.isBlockedRight())
+                    {
+                        if(grille[i][j+1] == null)
+                        {
+                            carreTmp.blockedAllPieceSquareLeft(false);
+                            grille[i][j+1] = carreTmp;
+                            grille[i][j] = null;
+                            if(j+1 == grille[i].length-1)
+                            {
+                                Log.d("DEBUG", "blockedRight");
+                                toBlock = grille[i][j+1];
+                            }
+                        }
+                    }
+
+                }
+            }
+            if(toBlock != null)
+            {
+                toBlock.blockedAllPieceSquareRight(true);
+                toBlock = null;
             }
         }
 

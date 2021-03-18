@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import ap.mobapp.tetris2020.gamelogic.Board;
 import ap.mobapp.tetris2020.gamelogic.Carre;
+import ap.mobapp.tetris2020.gamelogic.Directions;
 import ap.mobapp.tetris2020.gamelogic.Tetris;
 
 public class ViewBoard extends View
@@ -85,6 +86,16 @@ public class ViewBoard extends View
             }
         }
 
+    }
+
+    public void goLeft()
+    {
+        b.actualiserTableau(Directions.LEFT);
+    }
+
+    public void goRight()
+    {
+        b.actualiserTableau(Directions.RIGHT);
     }
 
     public void refreshCanvas()

@@ -1,6 +1,7 @@
 package ap.mobapp.tetris2020.gamelogic;
 
 import android.graphics.Color;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -44,8 +45,26 @@ public class Piece
     {
         for(int i = 0; i<ensCarre.length; i++ )
         {
-            ensCarre[i].setFixed(true);
+            ensCarre[i].setFixed(b);
         }
+    }
+
+    public void blockedAllSquareLeft(boolean b)
+    {
+        for(int i = 0; i<ensCarre.length; i++ )
+        {
+            ensCarre[i].setBlockedLeft(b);
+        }
+
+    }
+
+    public void blockedAllSquareRight(boolean b)
+    {
+        for(int i = 0; i<ensCarre.length; i++ )
+        {
+            ensCarre[i].setBlockedRight(b);
+        }
+
     }
 
     public void setEnsCarre(Carre[] ensCarre)

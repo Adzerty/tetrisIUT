@@ -42,6 +42,16 @@ public class GameActivity extends AppCompatActivity
 
     }
 
+    public void goLeft(View v)
+    {
+        this.plateau.goLeft();
+    }
+
+    public void goRight(View v)
+    {
+        this.plateau.goRight();
+    }
+
     public void exitApp()
     {
         Intent intent = new Intent(this, MainActivity.class);
