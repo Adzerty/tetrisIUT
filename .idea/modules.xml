@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Tetris2020.iml" filepath="$PROJECT_DIR$/Tetris2020.iml" group="Tetris2020" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Tetris2020/app" />
+    </modules>
+  </component>
+</project>

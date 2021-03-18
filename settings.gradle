@@ -1,0 +1,2 @@
+rootProject.name='Tetris2020'
+include ':app'

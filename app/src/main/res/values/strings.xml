@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Tetris2020</string>
+    <string name="title">TETRIS</string>
+    <string name="start">Lancer le jeu</string>
+    <string name="settings">Options</string>
+    <string name="scores">Tableau des scores</string>
+    <string name="credits">Tom BRULIN - Lucas DUBUC - Colin PALLIER - Adrien PESTEL - 2021</string>
+    <string name="score_title">SCORE :</string>
+    <string name="init_score">0000</string>
+
+
+    <!--
+    BOUTONS INGAME
+    -->
+    <string name="left"> \u003c- </string>
+    <string name="rotate"> TOURNER</string>
+    <string name="right">-\u003e</string>
+
+</resources>
