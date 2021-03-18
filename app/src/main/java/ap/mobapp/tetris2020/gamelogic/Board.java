@@ -106,13 +106,11 @@ public class Board
         }
 
         piece.setEnsCarre(ensCarreTmp.clone());
-        Log.d("DEBUG", piece.toString());
         return gameLost;
     }
 
     public boolean actualiserTableau(Directions direction)
     {
-       // Log.d("STATE", "ACTUALISE");
         //Methode qui permet l'actualisation du tableau de Carre "grille"
         boolean isActualizing = false;
 
@@ -128,11 +126,21 @@ public class Board
                     //On regarde si le carre du dessus est null et on descend
                     if (grille[i - 1][j] != null)
                     {
-                        //Log.d("DEBUG","MARQUEUR 2");
                         if (this.grille[i][j] == null && !this.grille[i - 1][j].isFixed())
                         {
                             this.grille[i][j] = this.grille[i - 1][j];
                             this.grille[i - 1][j] = null;
+                        }
+                        else
+                        {
+                            if(j>0 && carreTmp != null)
+                            {
+                                carreTmp.blockedAllPieceSquareLeft(grille[i][j-1] != null && grille[i][j-1].isFixed());
+                            }
+                            if(j<grille.length-1 && carreTmp != null)
+                            {
+                                carreTmp.blockedAllPieceSquareRight(grille[i][j+1] != null && grille[i][j+1].isFixed());
+                            }
                         }
                     }
                 }
@@ -146,14 +154,12 @@ public class Board
                     {
                         if (i == grille.length - 1)//Si on est en bas de la grille
                         {
-                            Log.d("DEBUG", "bas de la grille");
                             this.grille[i][j].fixedAllPieceSquare(true);
                         }
                         else //Si le carre du dessous n'est pas null on fixe
                         {
                             if (this.grille[i+1][j] != null && this.grille[i+1][j].isFixed())
                             {
-                                Log.d("DEBUG", "M1");
                                 this.grille[i][j].fixedAllPieceSquare(true);
                             }
                         }
@@ -174,9 +180,9 @@ public class Board
 
                     if(carreTmp != null && !carreTmp.isFixed() && !carreTmp.isBlockedLeft())
                     {
+                        carreTmp.blockedAllPieceSquareRight(false);
                         if(grille[i][j-1] == null)
                         {
-                            carreTmp.blockedAllPieceSquareRight(false);
                             grille[i][j-1] = carreTmp;
                             grille[i][j] = null;
 
@@ -207,14 +213,13 @@ public class Board
 
                     if(carreTmp != null && !carreTmp.isFixed() && !carreTmp.isBlockedRight())
                     {
+                        carreTmp.blockedAllPieceSquareLeft(false);
                         if(grille[i][j+1] == null)
                         {
-                            carreTmp.blockedAllPieceSquareLeft(false);
                             grille[i][j+1] = carreTmp;
                             grille[i][j] = null;
                             if(j+1 == grille[i].length-1)
                             {
-                                Log.d("DEBUG", "blockedRight");
                                 toBlock = grille[i][j+1];
                             }
                         }

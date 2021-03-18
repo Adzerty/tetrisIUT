@@ -22,11 +22,11 @@ public class Tetris
 
     private Tetris()
     {}
-
     public static Tetris getTetrisSingleton()
     {
         return tetrisSingleton;
     }
+
 
     public void setAct(GameActivity act)
     {
@@ -66,7 +66,6 @@ public class Tetris
                         //On verifie qu'on a pas deja ajouté une piece
                         if( !tetrisSingleton.isPieceFalling  && !tetrisSingleton.generatePiece())
                         {
-                            Log.d("STATE","Une piece est générée");
                             tetrisSingleton.isPieceFalling = true;
                             //gameLost = true;
                             //On fait tomber la piece
@@ -75,7 +74,6 @@ public class Tetris
 
                         if(! tetrisSingleton.board.actualiserTableau(Directions.DOWN))
                         {
-                            Log.d("DEBUG", "MARQUEUR 1");
                             tetrisSingleton.isPieceFalling = false;
                         }
 
