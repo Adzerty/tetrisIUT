@@ -72,6 +72,11 @@ public class Piece
         this.ensCarre = ensCarre;
     }
 
+    public Carre[] getEnsCarre()
+    {
+        return ensCarre;
+    }
+
     @NonNull
     @Override
     public String toString()

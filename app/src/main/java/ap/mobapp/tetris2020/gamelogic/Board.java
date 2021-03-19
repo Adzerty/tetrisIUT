@@ -96,6 +96,7 @@ public class Board
                     {
                         Carre carreTmp = new Carre(piece.getColor(), piece);
                         grille[i][trueSpawnX + j] = carreTmp;
+                        carreTmp.setCoord(j,i);
                         ensCarreTmp[indCarreTmp++] = carreTmp;
                     }else
                     {
@@ -129,6 +130,7 @@ public class Board
                         if (this.grille[i][j] == null && !this.grille[i - 1][j].isFixed())
                         {
                             this.grille[i][j] = this.grille[i - 1][j];
+                            this.grille[i][j].setCoord(j,i);
                             this.grille[i - 1][j] = null;
                         }
                         else
@@ -178,12 +180,13 @@ public class Board
                     //On recupere le carre cible
                     Carre carreTmp = grille[i][j];
 
-                    if(carreTmp != null && !carreTmp.isFixed() && !carreTmp.isBlockedLeft())
+                    if(carreTmp != null && !carreTmp.isFixed() && !carreTmp.isBlockedLeft() && pieceCanGoLeft(carreTmp))
                     {
                         carreTmp.blockedAllPieceSquareRight(false);
                         if(grille[i][j-1] == null)
                         {
                             grille[i][j-1] = carreTmp;
+                            this.grille[i][j-1].setCoord(j-1,i);
                             grille[i][j] = null;
 
                             if(j-1 == 0)
@@ -211,12 +214,13 @@ public class Board
                     //On recupere le carre cible
                     Carre carreTmp = grille[i][j];
 
-                    if(carreTmp != null && !carreTmp.isFixed() && !carreTmp.isBlockedRight())
+                    if(carreTmp != null && !carreTmp.isFixed() && pieceCanGoRight(carreTmp))
                     {
                         carreTmp.blockedAllPieceSquareLeft(false);
                         if(grille[i][j+1] == null)
                         {
                             grille[i][j+1] = carreTmp;
+                            this.grille[i][j+1].setCoord(j+1,i);
                             grille[i][j] = null;
                             if(j+1 == grille[i].length-1)
                             {
@@ -258,5 +262,27 @@ public class Board
     public int getCUBE_SIZE()
     {
         return CUBE_SIZE;
+    }
+
+    private boolean pieceCanGoLeft(Carre carre)
+    {
+        Piece pieceOfSquare = carre.getMotherPiece();
+        Carre[] ensCarre = pieceOfSquare.getEnsCarre();
+
+        return  !ensCarre[0].isBlockedLeft() &&
+                !ensCarre[1].isBlockedLeft() &&
+                !ensCarre[2].isBlockedLeft() &&
+                !ensCarre[3].isBlockedLeft();
+    }
+
+    private boolean pieceCanGoRight(Carre carre)
+    {
+        Piece pieceOfSquare = carre.getMotherPiece();
+        Carre[] ensCarre = pieceOfSquare.getEnsCarre();
+
+        return  !ensCarre[0].isBlockedRight() &&
+                !ensCarre[1].isBlockedRight() &&
+                !ensCarre[2].isBlockedRight() &&
+                !ensCarre[3].isBlockedRight();
     }
 }

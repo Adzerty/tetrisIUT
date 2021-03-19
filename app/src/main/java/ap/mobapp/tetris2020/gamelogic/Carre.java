@@ -7,6 +7,8 @@ public class Carre
     private boolean isBlockedLeft;
     private boolean isBlockedRight;
 
+    private int x, y;
+
     private Piece motherPiece;
 
     public Carre(int color, Piece motherPiece)
@@ -16,6 +18,27 @@ public class Carre
         this.isBlockedLeft = false;
         this.isBlockedRight = false;
         this.motherPiece = motherPiece;
+    }
+
+    public void setCoord(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX()
+    {
+        return x;
+    }
+
+    public int getY()
+    {
+        return y;
+    }
+
+    public Piece getMotherPiece()
+    {
+        return motherPiece;
     }
 
     public void setFixed(boolean b)
