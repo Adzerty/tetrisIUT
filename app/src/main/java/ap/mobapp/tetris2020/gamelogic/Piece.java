@@ -11,6 +11,7 @@ public class Piece
     private int color;
     private int x,y,rotation;
     private Carre[] ensCarre = new Carre[4];
+    private boolean hasMoved = false;
 
     public Piece ( PieceType pT)
     {
@@ -75,6 +76,16 @@ public class Piece
     public Carre[] getEnsCarre()
     {
         return ensCarre;
+    }
+
+    public void setHasMoved(boolean hasMoved)
+    {
+        this.hasMoved = hasMoved;
+    }
+
+    public boolean hasMoved()
+    {
+        return hasMoved;
     }
 
     @NonNull

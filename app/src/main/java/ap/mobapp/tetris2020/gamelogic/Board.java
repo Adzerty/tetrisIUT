@@ -27,6 +27,9 @@ public class Board
     //TABLEAUX DE PIECES TYPES
     private PieceType[] tabPieceType = new PieceType[]{PieceType.TypeI,PieceType.TypeJ,PieceType.TypeL,PieceType.TypeO,PieceType.TypeS,PieceType.TypeT,PieceType.TypeZ};
 
+    private Piece movingPiece;
+    private boolean pieceCanGo;
+
     public Board(int width, int height, ViewBoard vB)
     {
         this.vB = vB;
@@ -67,9 +70,7 @@ public class Board
         nb = random.nextInt(this.tabPieceType.length);
         Piece p = new Piece(this.tabPieceType[nb]);
 
-
-
-
+        movingPiece = p;
         boolean gameLost =  addPieceToBoard(p);
         return false;
     }
@@ -117,37 +118,6 @@ public class Board
 
         if(direction == Directions.DOWN)
         {
-            for (int i = grille.length-1; i >= 1; i--)
-            {
-                for (int j = grille[i].length - 1; j >= 0; j--)//On parcours le tableau à l'envers
-                {
-                    //On recupere le carre cible
-                    Carre carreTmp = grille[i][j];
-
-                    //On regarde si le carre du dessus est null et on descend
-                    if (grille[i - 1][j] != null)
-                    {
-                        if (this.grille[i][j] == null && !this.grille[i - 1][j].isFixed())
-                        {
-                            this.grille[i][j] = this.grille[i - 1][j];
-                            this.grille[i][j].setCoord(j,i);
-                            this.grille[i - 1][j] = null;
-                        }
-                        else
-                        {
-                            if(j>0 && carreTmp != null)
-                            {
-                                carreTmp.blockedAllPieceSquareLeft(grille[i][j-1] != null && grille[i][j-1].isFixed());
-                            }
-                            if(j<grille.length-1 && carreTmp != null)
-                            {
-                                carreTmp.blockedAllPieceSquareRight(grille[i][j+1] != null && grille[i][j+1].isFixed());
-                            }
-                        }
-                    }
-                }
-            }
-
             for (int i = grille.length-1; i > 0; i--)
             {
                 for (int j = grille[i].length-1; j > 0; j--)//On parcours le tableau à l'envers
@@ -168,6 +138,40 @@ public class Board
                     }
                 }
             }
+
+            for (int i = grille.length-1; i >= 1; i--)
+            {
+                for (int j = grille[i].length - 1; j >= 0; j--)//On parcours le tableau à l'envers
+                {
+                    //On recupere le carre cible
+                    Carre carreTmp = grille[i][j];
+
+                    //On regarde si le carre du dessus est null et on descend
+                    if (grille[i - 1][j] != null)
+                    {
+                        //Si le carre cible est vide et que le carre du dessus n'est pas fixe
+                        if (carreTmp == null && !this.grille[i - 1][j].isFixed())
+                        {
+                            this.grille[i][j] = this.grille[i - 1][j];
+                            this.grille[i][j].setCoord(j,i);
+                            this.grille[i - 1][j] = null;
+                        }
+                        else //Sinon
+                        {
+                            if(j>0 && carreTmp != null && !carreTmp.isFixed())
+                            {
+                                carreTmp.blockedAllPieceSquareLeft(grille[i][j-1] != null && grille[i][j-1].isFixed());
+
+                            }
+                            if(j<grille.length-1 && carreTmp != null && !carreTmp.isFixed())
+                            {
+                                Log.d("DEBUG", "EST BLOQUE A DROITE");
+                                    carreTmp.blockedAllPieceSquareRight(grille[i][j+1] != null && grille[i][j+1].isFixed());
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         if(direction == Directions.LEFT)
@@ -179,9 +183,11 @@ public class Board
                 {
                     //On recupere le carre cible
                     Carre carreTmp = grille[i][j];
-
+                    if(carreTmp != null && !carreTmp.isFixed())
+                        Log.d("DEBUG", "est null ? " + carreTmp + " : est fixed ? "+ carreTmp.isFixed() + " est bloqué à gauche ? " +carreTmp.isBlockedLeft() + " la piece peut bouger ? " + pieceCanGoLeft(carreTmp));
                     if(carreTmp != null && !carreTmp.isFixed() && !carreTmp.isBlockedLeft() && pieceCanGoLeft(carreTmp))
                     {
+                        //La premiere piece bouge mais est bloque, donc le reste ne peux plus.
                         carreTmp.blockedAllPieceSquareRight(false);
                         if(grille[i][j-1] == null)
                         {
@@ -202,6 +208,7 @@ public class Board
                 toBlock.blockedAllPieceSquareLeft(true);
                 toBlock = null;
             }
+            movingPiece.setHasMoved(false);
         }
 
         if(direction == Directions.RIGHT)
@@ -214,7 +221,9 @@ public class Board
                     //On recupere le carre cible
                     Carre carreTmp = grille[i][j];
 
-                    if(carreTmp != null && !carreTmp.isFixed() && pieceCanGoRight(carreTmp))
+                    if(carreTmp != null && !carreTmp.isFixed())
+                        Log.d("DEBUG", "est null ? " + carreTmp + " : est fixed ? "+ carreTmp.isFixed() + " est bloqué à droite ? " +carreTmp.isBlockedRight() + " la piece peut bouger ? " + pieceCanGoRight(carreTmp));
+                    if(carreTmp != null && !carreTmp.isFixed() && !carreTmp.isBlockedRight() && pieceCanGoRight(carreTmp))
                     {
                         carreTmp.blockedAllPieceSquareLeft(false);
                         if(grille[i][j+1] == null)
@@ -236,6 +245,7 @@ public class Board
                 toBlock.blockedAllPieceSquareRight(true);
                 toBlock = null;
             }
+            movingPiece.setHasMoved(false);
         }
 
         //On reparcours une fois le tableau et on vérifie que tout est fixe
@@ -267,22 +277,38 @@ public class Board
     private boolean pieceCanGoLeft(Carre carre)
     {
         Piece pieceOfSquare = carre.getMotherPiece();
+        if(pieceOfSquare.hasMoved())return true;
         Carre[] ensCarre = pieceOfSquare.getEnsCarre();
 
-        return  !ensCarre[0].isBlockedLeft() &&
-                !ensCarre[1].isBlockedLeft() &&
-                !ensCarre[2].isBlockedLeft() &&
-                !ensCarre[3].isBlockedLeft();
+        pieceCanGo = true;
+        for(Carre carreTmp : ensCarre)
+        {
+            int i = carreTmp.getY();
+            int j = carreTmp.getX();
+
+            if(j>0 && grille[i][j-1] != null && grille[i][j-1].getMotherPiece() != pieceOfSquare)
+                pieceCanGo = false;
+        }
+        if(pieceCanGo)pieceOfSquare.setHasMoved(true);
+        return pieceCanGo;
     }
 
     private boolean pieceCanGoRight(Carre carre)
     {
         Piece pieceOfSquare = carre.getMotherPiece();
+        if(pieceOfSquare.hasMoved())return true;
         Carre[] ensCarre = pieceOfSquare.getEnsCarre();
 
-        return  !ensCarre[0].isBlockedRight() &&
-                !ensCarre[1].isBlockedRight() &&
-                !ensCarre[2].isBlockedRight() &&
-                !ensCarre[3].isBlockedRight();
+            pieceCanGo = true;
+            for (Carre carreTmp : ensCarre)
+            {
+                int i = carreTmp.getY();
+                int j = carreTmp.getX();
+
+                if (j < grille[i].length - 1 && grille[i][j + 1] != null && grille[i][j + 1].getMotherPiece() != pieceOfSquare)
+                    pieceCanGo = false;
+            }
+        if(pieceCanGo)pieceOfSquare.setHasMoved(true);
+        return pieceCanGo;
     }
 }
