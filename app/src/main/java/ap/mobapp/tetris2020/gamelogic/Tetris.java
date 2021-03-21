@@ -1,6 +1,7 @@
 package ap.mobapp.tetris2020.gamelogic;
 
 import android.util.Log;
+import android.widget.TextView;
 
 import java.util.Stack;
 import java.util.Timer;
@@ -49,13 +50,13 @@ public class Tetris
             @Override
             public void run()
             {
-                Log.d("STATE","Refreh : " + gameLost);
                 if(!gameLost)
                 {
 
                     if(isGameActive)
                     {
 
+                        Log.d("DEBUG", "Score : " + tetrisSingleton.actualScore);
                         //JEU NON EN PAUSE
 
                         /* TRAITEMENT GERE PAR CETTE CLASSE */
@@ -68,17 +69,14 @@ public class Tetris
                         {
                             tetrisSingleton.isPieceFalling = true;
                             //gameLost = true;
-                            //On fait tomber la piece
-
                         }
 
+                        //On fait tomber la piece
                         if(! tetrisSingleton.board.actualiserTableau(Directions.DOWN))
                         {
                             tetrisSingleton.isPieceFalling = false;
                         }
 
-
-                        //tetrisSingleton.isPieceFalling = true;
                         //Une fois quelle est tombée on verifie si des lignes sont pleines
                         //on calcul les points selon le nombre de lignes detruites
                         /*
@@ -87,6 +85,12 @@ public class Tetris
                             3 lignes        = 700pts
                             4 lignes        = 1500pts
                          */
+
+                        if(!tetrisSingleton.isPieceFalling)
+                        {
+                            tetrisSingleton.actualScore += tetrisSingleton.board.checkForCompleteLines();
+                        }
+                        tetrisSingleton.act.setScore(tetrisSingleton.actualScore);
                     }
                     else
                     {

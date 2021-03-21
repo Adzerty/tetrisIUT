@@ -4,7 +4,10 @@ import android.graphics.Color;
 
 public enum PieceType {
 
-    TypeI(Color.CYAN, new boolean[][] {
+    //CYAN
+
+    TypeI(0xFF3CC9BE
+            , new boolean[][] {
             {
                     false,	false,	false,	false,
                     true,	true,	true,	true,
@@ -31,7 +34,8 @@ public enum PieceType {
             }
     },4),
 
-    TypeJ(Color.BLUE, new boolean[][] {
+    //BLEU
+    TypeJ(0xFF2869BD, new boolean[][] {
             {
                     true,	false,	false,
                     true,	true,	true,
@@ -54,7 +58,8 @@ public enum PieceType {
             }
     },3),
 
-    TypeL(Color.BLACK, new boolean[][] {
+    //VIOLET
+    TypeL(0xFF8600CE, new boolean[][] {
             {
                     false,	false,	true,
                     true,	true,	true,
@@ -77,7 +82,8 @@ public enum PieceType {
             }
     },3),
 
-    TypeO(Color.YELLOW, new boolean[][] {
+    //JAUNE
+    TypeO(0xFFF0E90B, new boolean[][] {
             {
                     true,	true,
                     true,	true,
@@ -96,7 +102,8 @@ public enum PieceType {
             }
     }, 2),
 
-    TypeS(Color.GREEN, new boolean[][] {
+    //VERT
+    TypeS(0xFF6CF00B, new boolean[][] {
             {
                     false,	true,	true,
                     true,	true,	false,
@@ -119,7 +126,8 @@ public enum PieceType {
             }
     }, 3),
 
-    TypeT(Color.MAGENTA, new boolean[][] {
+    //ROSE
+    TypeT(0xFFFF67F6, new boolean[][] {
             {
                     false,	true,	false,
                     true,	true,	true,
@@ -142,7 +150,8 @@ public enum PieceType {
             }
     }, 3),
 
-    TypeZ(Color.RED, new boolean[][] {
+    //ROUGE
+    TypeZ(0xFFEF711F, new boolean[][] {
             {
                     true,	true,	false,
                     false,	true,	true,

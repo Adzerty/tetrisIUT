@@ -79,8 +79,6 @@ public class ViewBoard extends View
                     carrePaint.setStrokeWidth(8);
                     canvas.drawRect(j*b.getCUBE_SIZE(),i*b.getCUBE_SIZE(), j*b.getCUBE_SIZE() + b.getCUBE_SIZE(), i*b.getCUBE_SIZE()+b.getCUBE_SIZE(), carrePaint);
 
-                    //L T R B
-
                 }
 
             }
@@ -90,12 +88,26 @@ public class ViewBoard extends View
 
     public void goLeft()
     {
-        b.actualiserTableau(Directions.LEFT);
+        if(! b.isVerrouiller())
+            b.actualiserTableau(Directions.LEFT);
     }
 
     public void goRight()
     {
-        b.actualiserTableau(Directions.RIGHT);
+        if(! b.isVerrouiller())
+            b.actualiserTableau(Directions.RIGHT);
+    }
+
+    public void goDown()
+    {
+        b.actualiserTableau(Directions.DOWN);
+    }
+
+
+    public void rotate()
+    {
+        if(! b.isVerrouiller())
+            b.actualiserTableau(Directions.ROTATE);
     }
 
     public void refreshCanvas()

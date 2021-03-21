@@ -23,6 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/tvScore"
             android:text="@string/init_score"/>
     </LinearLayout>
 
@@ -41,12 +42,19 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rotate"/>
+            android:text="@string/rotate"
+            android:onClick="rotate"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/down"
+            android:onClick="goDown"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/right"
             android:onClick="goRight"/>
     </LinearLayout>
+
 
 </LinearLayout>

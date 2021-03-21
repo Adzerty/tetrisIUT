@@ -15,5 +15,6 @@
     <string name="left"> \u003c- </string>
     <string name="rotate"> TOURNER</string>
     <string name="right">-\u003e</string>
+    <string name="down">DESCENDRE</string>
 
 </resources>
