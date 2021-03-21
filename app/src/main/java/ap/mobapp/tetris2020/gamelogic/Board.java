@@ -412,7 +412,7 @@ public class Board
         }
 
         this.actualiserTableau(Directions.DOWN);
-        for(int i = lineToRemove-1; i>=0; i--)
+        for(int i = grille.length-1; i>=0; i--)
         {
             for(int j = grille[i].length-1; j>=0; j--)
             {

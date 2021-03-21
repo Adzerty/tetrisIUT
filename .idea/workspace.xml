@@ -10,27 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6071408e-aff8-401a-8a31-eebf6645cf2e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/GameActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/GameActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/ViewBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/ViewBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Directions.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Directions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/PieceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Tetris.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ap/mobapp/tetris2020/gamelogic/Tetris.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_game.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
